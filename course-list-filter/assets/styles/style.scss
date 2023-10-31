@@ -1,0 +1,78 @@
+//variables
+$color-gray-100: #e9eaf0;
+$color-gray-500: #8c94a3;
+$color-primary-700: #993d20;
+$color-primary-500: #ff6636;
+$color-primary-100: #ffeee8;
+$color-warning-500: #fd8e1f;
+$color-secondary-500: #564ffd;
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.courses-item {
+  border: 1px solid $color-gray-100;
+  position: relative;
+  &__content {
+    padding: 18px 14px;
+  }
+  &__top {
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__category {
+    padding: 4px 6px;
+    text-transform: uppercase;
+    background-color: $color-primary-100;
+    color: $color-primary-700;
+    font-size: 10px;
+  }
+  &__price {
+    color: $color-primary-500;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  &__bottom {
+    padding: 24px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div:nth-child(n) {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+  &__students-text {
+    color: $color-gray-500;
+  }
+  &__bottom::before {
+    content: "";
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-gray-100;
+  }
+}
+
+.bi-star-fill {
+  color: $color-warning-500;
+}
+
+.bi-people {
+  color: $color-secondary-500;
+}

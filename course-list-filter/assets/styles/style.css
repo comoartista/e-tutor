@@ -1,0 +1,71 @@
+.container {
+  max-width: 1320px;
+  width: 100%;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.courses-item {
+  border: 1px solid #e9eaf0;
+  position: relative;
+}
+.courses-item__content {
+  padding: 18px 14px;
+}
+.courses-item__top {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.courses-item__category {
+  padding: 4px 6px;
+  text-transform: uppercase;
+  background-color: #ffeee8;
+  color: #993d20;
+  font-size: 10px;
+}
+.courses-item__price {
+  color: #ff6636;
+  font-size: 18px;
+  font-weight: 500;
+}
+.courses-item__bottom {
+  padding: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.courses-item__bottom div:nth-child(n) {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.courses-item__students-text {
+  color: #8c94a3;
+}
+.courses-item__bottom::before {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e9eaf0;
+}
+
+.bi-star-fill {
+  color: #fd8e1f;
+}
+
+.bi-people {
+  color: #564ffd;
+}
+
+/*# sourceMappingURL=style.css.map */

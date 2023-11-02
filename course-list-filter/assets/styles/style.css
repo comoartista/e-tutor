@@ -5,6 +5,21 @@
   margin: 0 auto;
 }
 
+.action__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action__cta {
+  display: flex;
+  align-items: center;
+}
+
+.courses__wrapper {
+  display: flex;
+  gap: 24px;
+}
+
 .courses-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -60,12 +75,22 @@
   background-color: #e9eaf0;
 }
 
-.bi-star-fill {
-  color: #fd8e1f;
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 312px;
+  flex-shrink: 0;
 }
 
-.bi-people {
-  color: #564ffd;
+.filter.hide {
+  display: none;
+}
+
+.bi-star-fill,
+.bi-star-half,
+.bi-star {
+  color: #fd8e1f;
 }
 
 /*# sourceMappingURL=style.css.map */

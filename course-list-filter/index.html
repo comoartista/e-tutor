@@ -10,23 +10,159 @@
     <script src="assets/scripts/script.js" defer></script>
 </head>
 <body>
+    <section class="action">
+        <div class="container action__container">
+            <div class="input-group" style="width: 450px;">
+                <button id="btn-filter" type="button" class="btn btn-primary"><i class="bi bi-filter"></i>Filter</button>
+                <input type="text" class="form-control action__search-input" aria-label="What do you want learn..." placeholder="What do you want learn...">
+              </div>
+              <select class="form-select" aria-label="Default select example" style="width: 200px;">
+                <option value="1">Most Relevant</option>
+                <option value="2">Most revieved</option>
+                <option value="3">Highest rated</option>
+                <option value="3">Newest</option>
+              </select>
+        </div>
+    </section>
         <section class="top-actions">
             <div class="container"></div>
         </section>
         <section class="courses">
             <div class="container">
-                <div class="courses__wrapper row">
-                    <div class="filter col-3">
-                    <div class="category">Category</div>
-                    <div class="tools">Tools</div>
-                    <div class="rating">Rating</div>
-                    <div class="course-level">Course Level</div>
-                    <div class="price">Price</div>
-                    <div class="duration">Duration</div>
+                <div class="courses__wrapper">
+                    <div class="filter hide">
+                        <div class="accordion" id="accordionPrice">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="true" aria-controls="collapsePrice">
+                                    Price
+                                </button>
+                              </h2>
+                              <div id="collapsePrice" class="accordion-collapse collapse show" data-bs-parent="#accordionPrice">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                            Paid
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                          Free
+                                        </label>
+                                    </div>
+                                </div>     
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion" id="accordionRating">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRating" aria-expanded="true" aria-controls="collapseRating">
+                                    Rating
+                                </button>
+                              </h2>
+                              <div id="collapseRating" class="accordion-collapse collapse show" data-bs-parent="#accordionRating">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                          <div class="stars">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            4.5 & up
+                                          </div>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                          <div class="stars">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            4.0 & up
+                                          </div>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                          <div class="stars">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                            3.5 & up
+                                          </div>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                          <div class="stars">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            3 & up
+                                          </div>
+                                        </label>
+                                    </div>
+                                </div>     
+                              </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="accordionLevel">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLevel" aria-expanded="true" aria-controls="collapseLevel">
+                                    Course level
+                                </button>
+                              </h2>
+                              <div id="collapseLevel" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                            All Level
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                          Beginner
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                            Intermediate
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="flexRadioHtml" id="flexRadioHtml">
+                                        <label class="form-check-label" for="flexRadioHtml">
+                                            Expert
+                                        </label>
+                                    </div>
+                                </div>     
+                              </div>
+                            </div>
+                        </div>
                 </div>
-                <div class="courses-content col">
+                <div class="courses-content">
                     <div class="courses-list">
-                        <div class="courses-item">
+                        <!-- <div class="courses-item">
                             <div class="courses-item__img">
                                 <img class="card-img-top" src="./assets/images/courses-cover/course-cover-1.jpg" alt="img">
                             </div>
@@ -44,14 +180,14 @@
                                         <span class="courses-item__rating-num">4.9</span>
                                     </div>
                                     <div class="courses-item__students">
-                                        <i class="bi bi-people"></i>
+                                        <i class="bi bi-people "></i>
                                         <span class="courses-item__students-num">197,637
                                             <span class="courses-item__students-text">students</span>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                    </div>
                    
                    <div class="pagination"></div>

@@ -1,5 +1,6 @@
 const coursesList = document.querySelector('.courses-list');
 const btnFilter = document.getElementById('btn-filter');
+const btnSearch = document.getElementById('btn-search');
 const filterSideBar = document.querySelector('.filter');
 
 
@@ -42,63 +43,76 @@ const courses = [
     }
 ]
 
-const showCourses = (courses) => {
-    courses.forEach((course) => {
-        const coursesItem = document.createElement('div');
-        coursesItem.classList.add('courses-item');
+const renderCourses = (filter = '') => {    
+    coursesList.innerHTML = '';
 
-        const coursesItemImg = document.createElement('img');
-        coursesItemImg.classList.add('courses-item__img');
-        coursesItemImg.textContent = `../images/course-cover-${course.img}.jpg`;
+    const filteredCourses = !filter //false
+        ? courses //if it's true that render courses
+        : courses.filter(course => course.title.toLowerCase().includes(filter.toLowerCase())); //if it's false that render courses.filter
 
-        const coursesItemContent = document.createElement('div');
-        coursesItemContent.classList.add('courses-item__content');
-
-        const coursesItemInfo = document.createElement('div');
-        const coursesItemTop = document.createElement('div');
-        coursesItemTop.classList.add('courses-item__top');
-
-        const coursesItemCategory = document.createElement('div');
-        coursesItemCategory.classList.add('courses-item__category');
-        coursesItemCategory.textContent = course.category;
-
-        const coursesItemPrice = document.createElement('div');
-        coursesItemPrice.classList.add('courses-item__price');
-        coursesItemPrice.textContent = `$${course.price}`
-
-        const coursesItemTitle = document.createElement('h5');
-        coursesItemTitle.textContent = course.title;
-
-        const coursesItemBottom = document.createElement('div');
-        coursesItemBottom.classList.add('courses-item__bottom');
-
-        const coursesItemRating = document.createElement('div');
-        const coursesItemIconStar = document.createElement('i');
-        coursesItemIconStar.classList.add('bi', 'bi-star-fill');
-        const coursesItemRatingNum = document.createElement('span');
-        coursesItemRatingNum.textContent = course.rating;        
-        coursesItemRating.append(coursesItemIconStar, coursesItemRatingNum);
-
-        const coursesItemStudents = document.createElement('div');
-        const coursesItemIconPeople = document.createElement('i');
-        coursesItemIconPeople.classList.add('bi', 'bi-people', 'text-primary');
-        const coursesItemStudentsNum = document.createElement('span');
-        coursesItemStudentsNum.textContent = course.students;   
-        const coursesItemStudentsText = document.createElement('span');
-        coursesItemStudentsText.classList.add('courses-item__students-text');
-
-        coursesItemStudentsText.textContent = 'students';
-        coursesItemStudentsNum.append(coursesItemStudentsText);
-
-        coursesItemStudents.append(coursesItemIconPeople, coursesItemStudentsNum);
-        coursesItemTop.append(coursesItemCategory, coursesItemPrice)
-        coursesItemBottom.append(coursesItemRating, coursesItemStudents)
-        coursesItemInfo.append(coursesItemTop, coursesItemTitle);
-        coursesItemContent.append(coursesItemInfo, coursesItemBottom);
-        coursesItem.append(coursesItemImg, coursesItemContent);
-        coursesList.append(coursesItem);
-    })
+        filteredCourses.forEach((course) => {
+            const coursesItem = document.createElement('div');
+            coursesItem.classList.add('courses-item');
+    
+            const coursesItemImg = document.createElement('img');
+            coursesItemImg.classList.add('courses-item__img');
+            coursesItemImg.textContent = `../images/course-cover-${course.img}.jpg`;
+    
+            const coursesItemContent = document.createElement('div');
+            coursesItemContent.classList.add('courses-item__content');
+    
+            const coursesItemInfo = document.createElement('div');
+            const coursesItemTop = document.createElement('div');
+            coursesItemTop.classList.add('courses-item__top');
+    
+            const coursesItemCategory = document.createElement('div');
+            coursesItemCategory.classList.add('courses-item__category');
+            coursesItemCategory.textContent = course.category;
+    
+            const coursesItemPrice = document.createElement('div');
+            coursesItemPrice.classList.add('courses-item__price');
+            coursesItemPrice.textContent = `$${course.price}`
+    
+            const coursesItemTitle = document.createElement('h5');
+            coursesItemTitle.textContent = course.title;
+    
+            const coursesItemBottom = document.createElement('div');
+            coursesItemBottom.classList.add('courses-item__bottom');
+    
+            const coursesItemRating = document.createElement('div');
+            const coursesItemIconStar = document.createElement('i');
+            coursesItemIconStar.classList.add('bi', 'bi-star-fill');
+            const coursesItemRatingNum = document.createElement('span');
+            coursesItemRatingNum.textContent = course.rating;        
+            coursesItemRating.append(coursesItemIconStar, coursesItemRatingNum);
+    
+            const coursesItemStudents = document.createElement('div');
+            const coursesItemIconPeople = document.createElement('i');
+            coursesItemIconPeople.classList.add('bi', 'bi-people', 'text-primary');
+            const coursesItemStudentsNum = document.createElement('span');
+            coursesItemStudentsNum.textContent = course.students;   
+            const coursesItemStudentsText = document.createElement('span');
+            coursesItemStudentsText.classList.add('courses-item__students-text');
+    
+            coursesItemStudentsText.textContent = 'students';
+            coursesItemStudentsNum.append(coursesItemStudentsText);
+    
+            coursesItemStudents.append(coursesItemIconPeople, coursesItemStudentsNum);
+            coursesItemTop.append(coursesItemCategory, coursesItemPrice)
+            coursesItemBottom.append(coursesItemRating, coursesItemStudents)
+            coursesItemInfo.append(coursesItemTop, coursesItemTitle);
+            coursesItemContent.append(coursesItemInfo, coursesItemBottom);
+            coursesItem.append(coursesItemImg, coursesItemContent);
+            coursesList.append(coursesItem);
+        })
 }
-showCourses(courses);
+
+const searchCoursesHandler = () => {
+    const inputSearch = document.getElementById('input-search').value;
+    renderCourses(inputSearch);
+}
+
+renderCourses();
 
 btnFilter.addEventListener('click', btnFilterHandler);
+btnSearch.addEventListener('click', searchCoursesHandler);
